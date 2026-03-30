@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 from matplotlib.backends.backend_pdf import PdfPages
 import os
+import matplotlib as mpl
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 font_path = os.path.join(script_dir, 'Helvetica.ttf')
@@ -10,7 +14,7 @@ font_path = os.path.join(script_dir, 'Helvetica.ttf')
 # Data for three locations: G, M, R
 # Four methods: Q&D, Round #1, Round #2, Round #3
 # M latency > G > R for each method
-scenes = ['CMU-GHC', 'Mill-19', 'New-RI']
+scenes = ['CMU-GHC', 'Mill-19', 'CMU-RIC']
 
 # Q&D latency values (lowest)
 qd_results = [12, 15, 10]

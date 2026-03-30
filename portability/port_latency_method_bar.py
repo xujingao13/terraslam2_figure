@@ -4,12 +4,17 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.backends.backend_pdf import PdfPages
 import os
 
+import matplotlib as mpl
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 font_path = os.path.join(script_dir, 'Helvetica.ttf')
 
 # Data for three mapping scenes
 # Four methods: w/VGGT-Long, w/Map-Anything, w/VGGT, w/FastVGGT
-scenes = ['CMU-GHC', 'Mill-19', 'New-RI']
+scenes = ['CMU-GHC', 'Mill-19', 'CMU-RIC']
 
 # w/FastVGGT latency (lowest, fastest)
 fastvggt_results = np.array([18.5, 19.2, 15.1])
@@ -33,12 +38,12 @@ std_vggt_long = np.array([1.4, 1.5, 1.3]) * 10.8
 fig, ax = plt.subplots(figsize=(3.5, 3.5))
 
 # Set font
-font_prop = FontProperties(fname=font_path, size=12)
+font_prop = FontProperties(fname=font_path, size=14)
 
 # Set bar positions
 x = np.arange(len(scenes))
-width = 0.16
-inter_bar_distance = 0.04
+width = 0.17
+inter_bar_distance = 0.05
 
 # Create bars with patterns
 # w/VGGT: our current method (red, solid pattern)

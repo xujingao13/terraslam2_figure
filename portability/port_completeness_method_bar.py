@@ -4,6 +4,11 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.backends.backend_pdf import PdfPages
 import os
 
+import matplotlib as mpl
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 font_path = os.path.join(script_dir, 'Helvetica.ttf')
 
@@ -104,7 +109,7 @@ ax.add_artist(legend1)
 ax.grid(linestyle='--', linewidth=0.5, alpha=0.3)
 
 # Adjust y-axis limits based on data (percentage from 88 to 100)
-ax.set_ylim(88, 102)
+ax.set_ylim(88, 103)
 
 # Set y-axis ticks every 4
 ax.set_yticks(np.arange(88, 102, 4))

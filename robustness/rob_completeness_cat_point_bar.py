@@ -4,12 +4,17 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.backends.backend_pdf import PdfPages
 import os
 
+import matplotlib as mpl
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 font_path = os.path.join(script_dir, 'Helvetica.ttf')
 
 # Data for three mapping scenes
 # Three point types: Corner Points, Edge Points, Surface Points
-scenes = ['CMU-GHC', 'Mill-19', 'New-RI']
+scenes = ['CMU-GHC', 'Mill-19', 'CMU-RIC']
 
 # Corner Points completeness rate (highest, ~98%)
 corner_results = np.array([97.2, 98.8, 99.1])

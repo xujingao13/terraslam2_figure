@@ -5,6 +5,11 @@ from matplotlib import rcParams
 from matplotlib.backends.backend_pdf import PdfPages
 import os
 
+import matplotlib as mpl
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 font_path = os.path.join(script_dir, 'Helvetica.ttf')
 
@@ -64,7 +69,7 @@ plt.figure(figsize=(3.5, 3.5))
 ax = plt.subplot()
 
 # 直接指定 Helvetica 字体文件路径
-font_prop = FontProperties(fname=font_path, size=12)
+font_prop = FontProperties(fname=font_path, size=14)
 
 # 在需要使用字体的地方使用 font_prop
 plt.xlabel('ICP Error (m)', fontproperties=font_prop, verticalalignment='center', labelpad=10)
@@ -87,7 +92,7 @@ for label in (ax.get_xticklabels() + ax.get_yticklabels()):
 plt.grid(linestyle='--', linewidth=0.5, zorder=1)
 plt.ylim(0, 1.02)
 plt.xlim(0, 5)
-leg = plt.legend(loc='best', prop={'size': 10})
+leg = plt.legend(loc='best', prop={'size': 11})
 leg.get_frame().set_edgecolor('#000000')
 leg.get_frame().set_linewidth(0.5)
 

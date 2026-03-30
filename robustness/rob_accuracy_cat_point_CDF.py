@@ -4,6 +4,10 @@ from matplotlib.font_manager import FontProperties
 from matplotlib import rcParams
 from matplotlib.backends.backend_pdf import PdfPages
 import os
+import matplotlib as mpl
+
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 font_path = os.path.join(script_dir, 'Helvetica.ttf')
